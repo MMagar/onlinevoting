@@ -1,3 +1,24 @@
+<?php
+
+function addActiveClassIfElementActive($menuItemName) {
+  if(isMenuActive($menuItemName))
+    echo 'class="active"';
+}
+
+function isMenuActive($menuItemName) {
+  if(currentPageName() == 'index.php' && $menuItemName == 'Home')
+    return true;
+  else if(currentPageName() == 'vote-view.php' && $menuItemName == 'Vote')
+    return true;
+  else
+    return false;
+}
+
+function currentPageName() {
+  return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
+}
+?>
+
 <!-- NAVBAR
 ================================================== -->
 <div class="navbar-wrapper">
@@ -16,9 +37,9 @@
         <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#vote">Vote</a></li>
-            <li><a href="#about">Results</a></li>
+            <li <?php addActiveClassIfElementActive('Home') ?>><a href="index.php">Home</a></li>
+            <li <?php addActiveClassIfElementActive('Vote') ?>><a href="vote-view.php">Vote</a></li>
+            <li <?php addActiveClassIfElementActive('About') ?>><a href="#about">Results</a></li>
             <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Info <b class="caret"></b></a>
