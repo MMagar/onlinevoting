@@ -35,7 +35,7 @@ function currentPageName() {
         </a>
         <a class="brand" href="#">Online voting</a>
         <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
-        <div class="nav-collapse collapse">
+        <div class="nav-collapse collapse navbar-inverse-collapse">
           <ul class="nav">
             <li <?php addActiveClassIfElementActive('Home') ?>><a href="index.php">Home</a></li>
             <li <?php addActiveClassIfElementActive('Vote') ?>><a href="vote-view.php">Vote</a></li>
