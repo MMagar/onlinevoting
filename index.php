@@ -151,7 +151,7 @@ include '_nav-bar.php';
   <hr class="featurette-divider">
 
   <div class="featurette">
-    <img class="featurette-image pull-right" src="img/examples/browser-icon-safari.png">
+    <img class="featurette-image pull-right" src="img/examples/old1.jpg">
 
     <h2 class="featurette-heading">And lastly, this one. <span class="muted">Checkmate.</span></h2>
 
