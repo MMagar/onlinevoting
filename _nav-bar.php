@@ -1,22 +1,25 @@
 <?php
 
 function addActiveClassIfElementActive($menuItemName) {
-  if(isMenuActive($menuItemName))
+  if (isMenuActive($menuItemName))
     echo 'class="active"';
 }
 
 function isMenuActive($menuItemName) {
-  if(currentPageName() == 'index.php' && $menuItemName == 'Home')
+  if (currentPageName() == 'index.php' && $menuItemName == 'Home')
     return true;
-  else if(currentPageName() == 'vote-view.php' && $menuItemName == 'Vote')
+  else if (currentPageName() == 'candidate-selection.php' && $menuItemName == 'Vote')
+    return true;
+  else if (currentPageName() == 'voting-results.php' && $menuItemName == 'Results')
     return true;
   else
     return false;
 }
 
 function currentPageName() {
-  return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
+  return substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1);
 }
+
 ?>
 
 <!-- NAVBAR
@@ -38,8 +41,8 @@ function currentPageName() {
         <div class="nav-collapse collapse navbar-inverse-collapse">
           <ul class="nav">
             <li <?php addActiveClassIfElementActive('Home') ?>><a href="index.php">Home</a></li>
-            <li <?php addActiveClassIfElementActive('Vote') ?>><a href="vote-view.php">Vote</a></li>
-            <li <?php addActiveClassIfElementActive('About') ?>><a href="#about">Results</a></li>
+            <li <?php addActiveClassIfElementActive('Vote') ?>><a href="candidate-selection.php">Vote</a></li>
+            <li <?php addActiveClassIfElementActive('Results') ?>><a href="voting-results.php">Results</a></li>
             <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Info <b class="caret"></b></a>
