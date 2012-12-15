@@ -30,8 +30,6 @@ function displayExistingErrors() {
 
 ?>
 
-<!-- NAVBAR
-================================================== -->
 <div class="navbar-wrapper">
   <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
   <div class="container">
@@ -51,19 +49,6 @@ function displayExistingErrors() {
             <li <?php addActiveClassIfElementActive('Home') ?>><a href="index.php">Home</a></li>
             <li <?php addActiveClassIfElementActive('Vote') ?>><a href="candidate-selection.php">Vote</a></li>
             <li <?php addActiveClassIfElementActive('Results') ?>><a href="voting-results.php">Results</a></li>
-            <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Info <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Current election</a></li>
-                <li><a href="#">Candidates</a></li>
-                <li><a href="#">Political parties</a></li>
-                <li class="divider"></li>
-                <li class="nav-header">Offline voting</li>
-                <li><a href="#">Nearest booths</a></li>
-                <li><a href="#">How to vote offline</a></li>
-              </ul>
-            </li>
           </ul>
           <ul class="nav pull-right">
             <li>
@@ -79,7 +64,7 @@ function displayExistingErrors() {
               } else {
                 displayExistingErrors();
                 ?>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">Login
+                <button type="button" id="loginButton" class="btn btn-success" data-toggle="modal" data-target="#loginModal">Login
                 </button>
                 <?php
               }
@@ -87,11 +72,8 @@ function displayExistingErrors() {
             </li>
           </ul>
         </div>
-        <!--/.nav-collapse -->
       </div>
-      <!-- /.navbar-inner -->
     </div>
-    <!-- /.navbar -->
 
   </div>
   <!-- /.container -->
