@@ -21,6 +21,10 @@ if (isset($_POST['inputSocialSecNumber'])) {
   }
   pg_close($con);
 }
+
+function isLoggedIn() {
+  return isset($_SESSION['loggedIn']);
+}
 ?>
 <div id="loginModal" class="modal hide fade">
   <div class="modal-header">
