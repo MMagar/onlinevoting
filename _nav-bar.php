@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 function addActiveClassIfElementActive($menuItemName) {
   if (isMenuActive($menuItemName))
@@ -18,6 +19,13 @@ function isMenuActive($menuItemName) {
 
 function currentPageName() {
   return substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], "/") + 1);
+}
+
+function displayExistingErrors() {
+  if (isset($_SESSION['errors'])) {
+    echo $_SESSION['errors'];
+    unset($_SESSION['errors']);
+  }
 }
 
 ?>
@@ -55,6 +63,27 @@ function currentPageName() {
                 <li><a href="#">Nearest booths</a></li>
                 <li><a href="#">How to vote offline</a></li>
               </ul>
+            </li>
+          </ul>
+          <ul class="nav pull-right">
+            <li>
+              <?php
+              if (isset($_SESSION['loggedIn'])) {
+                ?>
+                <form id="logoutForm" action="index.php" method="POST" style="margin: 0 0 0px;">
+                  <?php echo "Logged in as {$_SESSION['firstName']} {$_SESSION['lastName']}"; ?>
+                  <input type="hidden" name="logout" value="true"/>
+                  <input type="submit" name="logout" class="btn btn-success" value="Logout"/>
+                </form>
+                <?php
+              } else {
+                displayExistingErrors();
+                ?>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginModal">Login
+                </button>
+                <?php
+              }
+              ?>
             </li>
           </ul>
         </div>

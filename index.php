@@ -30,6 +30,7 @@
 <body>
 
 <?php
+include '_authentication.php';
 include '_nav-bar.php';
 ?>
 
