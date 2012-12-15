@@ -10,6 +10,7 @@
       <th>Candidate number</th>
       <th>Name</th>
       <th>Party</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -26,7 +27,10 @@
     $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
 
     while ($row = pg_fetch_row($rs)) {
-      echo "<tr> <td>$row[0]</td> <td>$row[1] $row[2]</td> <td>$row[3]</td>";
+      echo "<tr> <td>$row[0]</td> <td>$row[1] $row[2]</td> <td>$row[3]</td> <td><form action='confirm-vote.php' method='POST' style='margin: 0 0 0px;'>
+                  <input type='hidden' name='candidate' value='".$row[0]."' />
+                  <input type='submit' name='logout' class='btn btn-success' value='Vote'/>
+                </form></td>";
     }
 
     pg_close($con);
