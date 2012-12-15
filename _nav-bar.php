@@ -44,7 +44,7 @@ function displayExistingErrors() {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Online voting</a>
+        <a class="brand" href="index.php">Online voting</a>
         <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
         <div class="nav-collapse collapse navbar-inverse-collapse">
           <ul class="nav">
