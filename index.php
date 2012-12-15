@@ -51,18 +51,11 @@ include '_nav-bar.php';
 
 
 <div class="container marketing">
-  <!-- START THE FEATURETTES -->
-
-  <hr class="featurette-divider">
-
   <div class="featurette">
     <img class="featurette-image pull-right" src="img/examples/estonia1.jpg">
 
     <h2 class="featurette-heading">Online voting has already been used several times. <span class="muted">Estonians have cast their votes online for several elections.</span>
     </h2>
-
-    <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.
-      Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
   </div>
 
   <div class="featurette">
@@ -71,13 +64,10 @@ include '_nav-bar.php';
     <h2 class="featurette-heading">Citizens are happy. <span
       class="muted">Elderly man gets an online voting tattoo.</span></h2>
   </div>
-  <!-- /END THE FEATURETTES -->
-
   <?php
     include '_footer.php';
   ?>
 </div>
-<!-- /.container -->
 
 <!-- Le javascript
 ================================================== -->
