@@ -1,5 +1,4 @@
 <?php
-include '_authentication.php';
 include '_header.php';
 ?>
 <div id="myCarousel" class="carousel slide">
