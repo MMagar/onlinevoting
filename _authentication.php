@@ -1,7 +1,6 @@
 <?php
-if (!isset ($_SESSION))
-{
-    session_start();
+if (!isset ($_SESSION)) {
+  session_start();
 }
 if (isset($_POST['logout'])) {
   session_destroy();
@@ -28,6 +27,7 @@ if (isset($_POST['inputSocialSecNumber'])) {
 function isLoggedIn() {
   return isset($_SESSION['loggedIn']);
 }
+
 ?>
 <div id="loginModal" class="modal hide fade">
   <div class="modal-header">

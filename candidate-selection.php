@@ -1,7 +1,6 @@
 <?php
-  include '_header.php';
+include '_header.php';
 ?>
-
 
 <div class="container content">
   <table class="table table-condensed">
@@ -28,7 +27,7 @@
 
     while ($row = pg_fetch_row($rs)) {
       echo "<tr> <td>$row[0]</td> <td>$row[1] $row[2]</td> <td>$row[3]</td> <td><form action='confirm-vote.php' method='POST' style='margin: 0 0 0px;'>
-                  <input type='hidden' name='candidate' value='".$row[0]."' />
+                  <input type='hidden' name='candidate' value='" . $row[0] . "' />
                   <input type='submit' name='submit' class='btn btn-success' value='Vote'/>
                 </form></td>";
     }
@@ -38,29 +37,7 @@
     </tbody>
   </table>
 
-  <?php
-  include '_footer.php';
-  ?>
-
 </div>
-<!-- /.container -->
-
-<!-- Le javascript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap-transition.js"></script>
-<script src="js/bootstrap-alert.js"></script>
-<script src="js/bootstrap-modal.js"></script>
-<script src="js/bootstrap-dropdown.js"></script>
-<script src="js/bootstrap-scrollspy.js"></script>
-<script src="js/bootstrap-tab.js"></script>
-<script src="js/bootstrap-tooltip.js"></script>
-<script src="js/bootstrap-popover.js"></script>
-<script src="js/bootstrap-button.js"></script>
-<script src="js/bootstrap-collapse.js"></script>
-<script src="js/bootstrap-carousel.js"></script>
-<script src="js/bootstrap-typeahead.js"></script>
-
-</body>
-</html>
+<?php
+include '_footer.php';
+?>
