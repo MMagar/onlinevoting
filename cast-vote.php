@@ -11,18 +11,19 @@ include '_header.php';
 <div class="container content">
   <div class="row">
     <div class="span10 offset1">
-        <fieldset>
-          <legend>Registering vote...</legend>
-          <label>Your vote is being registered. Please wait...</label>
-          <?php
-            echo "kood".$_SESSION['inputSocialSecNumber'];
-            $query = "Select * from f_haaleta('".$_SESSION['inputSocialSecNumber']."', ".$candidateNumber.")";
-            $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
-            $row = pg_fetch_row($rs);
-            $result = ($row[0] == 't');
-            echo "result ". $result." row".$row[0];
-          ?>
-        </fieldset>
+      <fieldset>
+        <legend>Registering vote...</legend>
+        <label>Your vote is being registered. Please wait...</label>
+        <?php
+        $query = "SELECT * FROM f_haaleta($1, $2)";
+        $parametersArray = array($_SESSION['inputSocialSecNumber'], $candidateNumber);
+        $rs = pg_query($con, $query, $parametersArray)
+          or die("Cannot execute query: $query\n With parameters: $parametersArray[0] and $parametersArray[1]");
+        $row = pg_fetch_row($rs);
+        $result = ($row[0] == 't');
+        echo "result " . $result . " row" . $row[0];
+        ?>
+      </fieldset>
       </form>
 
     </div>

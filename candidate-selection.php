@@ -29,7 +29,7 @@
     while ($row = pg_fetch_row($rs)) {
       echo "<tr> <td>$row[0]</td> <td>$row[1] $row[2]</td> <td>$row[3]</td> <td><form action='confirm-vote.php' method='POST' style='margin: 0 0 0px;'>
                   <input type='hidden' name='candidate' value='".$row[0]."' />
-                  <input type='submit' name='logout' class='btn btn-success' value='Vote'/>
+                  <input type='submit' name='submit' class='btn btn-success' value='Vote'/>
                 </form></td>";
     }
 
