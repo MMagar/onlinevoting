@@ -10,7 +10,7 @@ include '_header.php';
         <div class="carousel-caption">
           <h1>Online voting.</h1>
 
-          <p class="lead">Reliable democracy for lazy citizens. Testg3</p>
+          <p class="lead">Reliable democracy for lazy citizens.</p>
           <a class="btn btn-large btn-primary" href="#">Vote now</a>
         </div>
       </div>
