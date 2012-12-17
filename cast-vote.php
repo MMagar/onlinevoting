@@ -14,7 +14,6 @@ include '_header.php';
         <legend>Registering vote...</legend>
         <label>Your vote is being registered. Please wait...</label>
         <?php
-        include "_database-connection.php";
         $socSecurityNumber = $_SESSION['inputSocialSecNumber'];
         $query = "SELECT f_haaleta('$socSecurityNumber', '$candidateNumber')";
         $rs = pg_query($con, $query);
@@ -24,10 +23,8 @@ include '_header.php';
         } else {
           echo "Could not register vote!";
         }
-        pg_close($con);
         ?>
       </fieldset>
-
     </div>
   </div>
 </div>

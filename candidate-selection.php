@@ -20,7 +20,6 @@ include '_header.php';
       echo 'No logged in user, using test data of 39007180099';
       $voterIdCode = '39007180099';
     }
-    include '_database-connection.php';
 
     $query = "Select * from f_valitavad_kandidaadid('" . $voterIdCode . "')";
     $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
@@ -32,7 +31,6 @@ include '_header.php';
                 </form></td>";
     }
 
-    pg_close($con);
     ?>
     </tbody>
   </table>

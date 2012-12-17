@@ -7,7 +7,6 @@ if (isset($_POST['logout'])) {
 }
 
 if (isset($_POST['inputSocialSecNumber'])) {
-  include '_database-connection.php';
   $voterIdCode = $_POST['inputSocialSecNumber'];
   $query = "Select eesnimi, perenimi from Valija where valija_isikukood = ('" . $voterIdCode . "')";
   $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
@@ -21,7 +20,6 @@ if (isset($_POST['inputSocialSecNumber'])) {
     $_SESSION['firstName'] = $row[0];
     $_SESSION['lastName'] = $row[1];
   }
-  pg_close($con);
 }
 
 function isLoggedIn() {
