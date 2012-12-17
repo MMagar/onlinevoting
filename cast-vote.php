@@ -27,6 +27,7 @@ include '_header.php';
       </fieldset>
     </div>
   </div>
+  <br />
+  <?php include '_footer.php'; ?>
 </div>
-<?php include '_footer.php'; ?>
 

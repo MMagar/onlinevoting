@@ -24,8 +24,6 @@ if (!isset($candidateNumber)) {
       </form>
     </div>
   </div>
+  <?php include '_footer.php'; ?>
 </div>
 
-<?php
-include '_footer.php';
-?>
