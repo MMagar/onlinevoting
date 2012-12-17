@@ -36,8 +36,5 @@ include '_header.php';
     ?>
     </tbody>
   </table>
-
+  <?php include '_footer.php'; ?>
 </div>
-<?php
-include '_footer.php';
-?>
