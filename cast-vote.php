@@ -30,6 +30,7 @@ include '_header.php';
 
     </div>
   </div>
+  <br />
+  <?php include '_footer.php'; ?>
 </div>
-<?php include '_footer.php'; ?>
 
