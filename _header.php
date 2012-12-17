@@ -19,8 +19,10 @@
   <link rel="shortcut icon" href="ico/favicon.png">
 </head>
 <body>
+<div id="alerts" style="position:absolute;right:25px;top:100px; z-index: 100;"></div>
 <?php
 include "_database-connection.php";
+include '_messages-header.php';
 include '_authentication.php';
 include '_nav-bar.php';
 ?>

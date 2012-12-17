@@ -14,7 +14,7 @@
     if (isLoggedIn()) {
       $voterIdCode = $_SESSION['inputSocialSecNumber'];
     } else {
-      echo 'No logged in user, using test data of 39007180099';
+      addInfoMessage('No logged in user, using test data of 39007180099');
       $voterIdCode = '39007180099';
     }
 
