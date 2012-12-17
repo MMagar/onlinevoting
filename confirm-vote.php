@@ -1,10 +1,10 @@
 <?php
-include '_header.php';
 $candidateNumber = $_POST['candidate'];
 if (!isset($candidateNumber)) {
   header("Location: candidate-selection.php");
   exit;
 }
+include '_header.php';
 ?>
 
 <div class="container content">

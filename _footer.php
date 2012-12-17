@@ -1,6 +1,4 @@
-<?php
-pg_close($con);
-?>
+<?php pg_close($con) ?>
 <footer>
   <p class="pull-right"><a href="#">Back to top</a></p>
 
