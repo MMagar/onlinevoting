@@ -16,7 +16,7 @@ include '_header.php';
         <?php
         $query = "SELECT * FROM f_haaleta($1, $2)";
         $parametersArray = array($_SESSION['inputSocialSecNumber'], $candidateNumber);
-        $rs = pg_query($con, $query, $parametersArray)
+        $rs = pg_query_params($con, $query, $parametersArray)
           or die("Cannot execute query: $query\n With parameters: $parametersArray[0] and $parametersArray[1]");
         $row = pg_fetch_row($rs);
         $result = ($row[0] == 't');
