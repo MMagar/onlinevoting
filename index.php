@@ -18,20 +18,5 @@ include '_header.php';
   </div>
 </div>
 <div class="container marketing">
-  <div class="featurette">
-    <img class="featurette-image pull-right" src="img/examples/estonia1.jpg">
-
-    <h2 class="featurette-heading">Online voting has already been used several times. <span class="muted">Estonians have cast their votes online for several elections.</span>
-    </h2>
-  </div>
-
-  <div class="featurette">
-    <img class="featurette-image pull-left" src="img/examples/old1.jpg">
-
-    <h2 class="featurette-heading">Citizens are happy. <span
-      class="muted">Elderly man gets an online voting tattoo.</span></h2>
-  </div>
+  <?php include '_footer.php'; ?>
 </div>
-<?php
-include '_footer.php';
-?>
