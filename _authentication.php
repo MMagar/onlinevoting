@@ -7,6 +7,13 @@ if (isset($_POST['logout'])) {
 }
 
 if (isset($_POST['inputSocialSecNumber'])) {
+  if ($_POST['logInAsCommitteeMember'] == "on") {
+    $_SESSION['loggedInCommitteeMember'] = true;
+  }
+  else{
+    $_SESSION['loggedInAsVoter'] = true;
+  }
+
   include '_database-connection.php';
   $voterIdCode = $_POST['inputSocialSecNumber'];
   $query = "Select eesnimi, perenimi from Valija where valija_isikukood = ('" . $voterIdCode . "')";
@@ -32,7 +39,7 @@ function isLoggedIn() {
 <div id="loginModal" class="modal hide fade">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>Login</h3>
+    <h3>Role selection</h3>
   </div>
   <div class="modal-body">
     <form id="loginForm" class="form-horizontal" method="POST" action="index.php">
@@ -44,16 +51,9 @@ function isLoggedIn() {
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label" for="inputPassword">Password</label>
-
-        <div class="controls">
-          <input type="password" id="inputPassword" placeholder="Password">
-        </div>
-      </div>
-      <div class="control-group">
         <div class="controls">
           <label class="checkbox">
-            <input type="checkbox"> Remember me
+            <input type="checkbox" name="logInAsCommitteeMember"> Use site as a voting committe member
           </label>
         </div>
       </div>
