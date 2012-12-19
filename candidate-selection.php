@@ -1,7 +1,4 @@
-<?php
-include '_header.php';
-?>
-
+<?php include '_header.php' ?>
 <div class="container content">
   <table class="table table-condensed">
     <thead>
@@ -17,10 +14,9 @@ include '_header.php';
     if (isLoggedIn()) {
       $voterIdCode = $_SESSION['inputSocialSecNumber'];
     } else {
-      echo 'No logged in user, using test data of 39007180099';
+      addInfoMessage('No logged in user, using test data of 39007180099');
       $voterIdCode = '39007180099';
     }
-    include '_database-connection.php';
 
     $query = "Select * from f_valitavad_kandidaadid('" . $voterIdCode . "')";
     $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
@@ -32,7 +28,6 @@ include '_header.php';
                 </form></td>";
     }
 
-    pg_close($con);
     ?>
     </tbody>
   </table>

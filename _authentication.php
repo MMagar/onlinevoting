@@ -4,6 +4,7 @@ if (!isset ($_SESSION)) {
 }
 if (isset($_POST['logout'])) {
   session_destroy();
+  addSuccessMessage("Logged out. Good bye!");
 }
 
 if (isset($_POST['inputSocialSecNumber'])) {
@@ -20,15 +21,15 @@ if (isset($_POST['inputSocialSecNumber'])) {
   $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
 
   if (pg_num_rows($rs) < 1) {
-    $_SESSION['errors'] = "User not found!";
+    addErrorMessage("Did not find user with social security number <strong>$voterIdCode</strong>");
   } else {
     $row = pg_fetch_row($rs);
     $_SESSION['loggedIn'] = true;
     $_SESSION['inputSocialSecNumber'] = $_POST['inputSocialSecNumber'];
     $_SESSION['firstName'] = $row[0];
     $_SESSION['lastName'] = $row[1];
+    addSuccessMessage("Logged in as " . $_SESSION['firstName'] . " " . $_SESSION['lastName'] . ".");
   }
-  pg_close($con);
 }
 
 function isLoggedIn() {
