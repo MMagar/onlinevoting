@@ -73,7 +73,7 @@ function displayExistingErrors() {
               } else {
                 displayExistingErrors();
                 ?>
-                <button type="button" id="loginButton" class="btn btn-success" data-toggle="modal" data-target="#loginModal">Login
+                <button type="button" id="loginButton" class="btn btn-success" data-toggle="modal" data-target="#loginModal">Role selection
                 </button>
                 <?php
               }
