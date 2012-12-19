@@ -47,7 +47,16 @@ function displayExistingErrors() {
         <div class="nav-collapse collapse navbar-inverse-collapse">
           <ul class="nav">
             <li <?php addActiveClassIfElementActive('Home') ?>><a href="index.php">Home</a></li>
-            <li <?php addActiveClassIfElementActive('Vote') ?>><a href="candidate-selection.php">Vote</a></li>
+            <?php
+              if (isset($_SESSION['loggedInAsVoter'])) {
+                echo  "<li "; addActiveClassIfElementActive('Vote'); echo "><a href='candidate-selection.php'>Vote</a></li>";
+              }
+            ?>
+            <?php
+            if (isset($_SESSION['loggedInCommitteeMember'])) {
+              echo  "<li "; addActiveClassIfElementActive('Register paper vote'); echo "><a href='register-offline-vote.php'>Register paper vote</a></li>";
+            }
+            ?>
             <li <?php addActiveClassIfElementActive('Results') ?>><a href="voting-results.php">Results</a></li>
           </ul>
           <ul class="nav pull-right">
