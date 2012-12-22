@@ -20,18 +20,22 @@ function registerOfflineVote($socialSecurityNr) {
   <div class="row">
     <div class="span12">
       List of people who have voted online in your voting station. <br />
-      <tbody>
-       <tr>
-        <th>Social security number</th>
-       </tr>
-        <?php
-        $query = "Select * from webapp.f_vaata_haaletanuid('" . $_SESSION['inputSocialSecNumber'] . "')";
-        $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
-        while ($row = pg_fetch_row($rs)) {
-          echo "<tr> <td>$row[0]</td></tr>";
-        }
-        ?>
-      </tbody>
+      <table class="table table-condensed">
+        <thead>
+         <tr>
+           <th>Social security number</th>
+         </tr>
+        </thead>
+        <tbody>
+          <?php
+          $query = "Select * from webapp.f_vaata_haaletanuid('" . $_SESSION['inputSocialSecNumber'] . "')";
+          $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
+          while ($row = pg_fetch_row($rs)) {
+            echo "<tr> <td>$row[0]</td></tr>";
+          }
+          ?>
+        </tbody>
+      </table>
     </div>
   </div>
   <br/>
