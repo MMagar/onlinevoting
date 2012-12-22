@@ -19,8 +19,10 @@ include '_header.php';
         $rs = pg_query($con, $query);
         $result = pg_fetch_result($rs, 0, 0);
         if ($result === 't') {
+          addSuccessMessage("Vote successfully registered!");
           echo "Vote registered!";
         } else {
+          addErrorMessage("Could not register your vote!");
           echo "Could not register vote!";
         }
         ?>
