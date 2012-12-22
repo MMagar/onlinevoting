@@ -15,7 +15,7 @@ include '_header.php';
         <label>Your vote is being registered. Please wait...</label>
         <?php
         $socSecurityNumber = $_SESSION['inputSocialSecNumber'];
-        $query = "SELECT f_haaleta('$socSecurityNumber', '$candidateNumber')";
+        $query = "SELECT webapp.f_haaleta('$socSecurityNumber', '$candidateNumber')";
         $rs = pg_query($con, $query);
         $result = pg_fetch_result($rs, 0, 0);
         if ($result === 't') {

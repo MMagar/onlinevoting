@@ -20,7 +20,7 @@ function loginCommitteeMember($socialSecurityNumber, $password) {
   include '_database-connection.php';
   global $con;
   $password = md5($password);
-  $query = "SELECT * FROM f_login_komisjoni_liige('$socialSecurityNumber', '$password')";
+  $query = "SELECT * FROM webapp.f_login_komisjoni_liige('$socialSecurityNumber', '$password')";
   $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
 
   if (pg_num_rows($rs) < 1) {
@@ -35,7 +35,7 @@ function loginCommitteeMember($socialSecurityNumber, $password) {
 function loginVoter($socialSecurityNumber) {
   include '_database-connection.php';
   global $con;
-  $query = "Select eesnimi, perenimi from Valija where valija_isikukood = ('" . $socialSecurityNumber . "')";
+  $query = "Select eesnimi, perenimi from votingDb.Valija where valija_isikukood = ('" . $socialSecurityNumber . "')";
   $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
 
   if (pg_num_rows($rs) < 1) {

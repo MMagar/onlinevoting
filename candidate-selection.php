@@ -18,7 +18,7 @@
       $voterIdCode = '39007180099';
     }
 
-    $query = "Select * from f_valitavad_kandidaadid('" . $voterIdCode . "')";
+    $query = "Select * from webapp.f_valitavad_kandidaadid('" . $voterIdCode . "')";
     $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
 
     while ($row = pg_fetch_row($rs)) {

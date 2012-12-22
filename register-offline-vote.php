@@ -5,7 +5,7 @@ $voterSocialSecurityNr = $_POST['voterSocialSecurityNr'];
 function registerOfflineVote($socialSecurityNr) {
   global $con;
   global $voterSocialSecurityNr;
-  $query = "SELECT f_registreeri_tavahaaletus('$socialSecurityNr')";
+  $query = "SELECT webapp.f_registreeri_tavahaaletus('$socialSecurityNr')";
   $rs = pg_query($con, $query);
   if ($rs == false) {
     addErrorMessage("<br/>" . pg_last_error($con));

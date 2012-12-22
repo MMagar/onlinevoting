@@ -12,7 +12,7 @@
     <tbody>
     <?php
     $voterIdCode = '39007180099';
-    $query = "Select * from v_haaletustulemused";
+    $query = "Select * from webapp.v_haaletustulemused";
     $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
 
     while ($row = pg_fetch_row($rs)) {
