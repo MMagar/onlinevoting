@@ -1,21 +1,44 @@
-<?php include '_header.php' ?>
-<div class="container content">
-    <?php
-    if (isLoggedIn()) {
-        $voterIdCode = $_SESSION['inputSocialSecNumber'];
-    } else {
-        addInfoMessage('No logged in user, using test data of 39007180099');
-        $voterIdCode = '39007180099';
-    }
-    $query = "SELECT * FROM votingDb.Haal WHERE valija_isikukood = '$voterIdCode'";
-    $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
+<?php
+include '_header.php';
 
-    if (pg_num_rows($rs) < 1) {
-        echo "You have not voted e-voted yet. Select a candidate to vote for from the table below.";
-    } else {
-        echo "Your e-vote is registered. But you are still free to change it and pick a different candidate.";
-    }
-    ?>
+if (isLoggedIn()) {
+  $voterIdCode = $_SESSION['inputSocialSecNumber'];
+} else {
+  addInfoMessage('No logged in user, using test data of 39007180099');
+  $voterIdCode = '39007180099';
+}
+
+function getCurrentVoterStatusMessage() {
+  if (hasVoterPaperVoted()) {
+    return "You have cast a paper vote. You are unable to cast e-votes.";
+  } else if (hasVoterVotedOnline()) {
+    return "You have not voted e-voted yet. Select a candidate to vote for from the table below.";
+  } else {
+    return "Your e-vote is registered. But you are still free to change it and pick a different candidate.";
+  }
+}
+
+function hasVoterPaperVoted() {
+  global $con;
+  global $voterIdCode;
+  $query = "SELECT on_tavahaaletanud FROM votingDb.Valija WHERE valija_isikukood = '$voterIdCode'";
+  $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
+  $result = pg_fetch_result($rs, 0, 0);
+  return $result == 't';
+}
+
+function hasVoterVotedOnline() {
+  global $con;
+  global $voterIdCode;
+  $query = "SELECT * FROM votingDb.Haal WHERE valija_isikukood = '$voterIdCode'";
+  $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
+  return pg_num_rows($rs) > 0;
+}
+?>
+<div class="container content">
+  <?php
+  echo getCurrentVoterStatusMessage()
+  ?>
 
   <table class="table table-condensed">
     <thead>
