@@ -19,7 +19,8 @@ if (isset($_POST['logInAsCommitteeMember'])) {
 function loginCommitteeMember($socialSecurityNumber, $password) {
   include '_database-connection.php';
   global $con;
-  $password = md5($password);
+  $static_salt = "random";
+  $password = sha1($password.$static_salt);
   $query = "SELECT * FROM webapp.f_login_komisjoni_liige('$socialSecurityNumber', '$password')";
   $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
 
