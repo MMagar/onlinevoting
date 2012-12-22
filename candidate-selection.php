@@ -1,5 +1,22 @@
 <?php include '_header.php' ?>
 <div class="container content">
+    <?php
+    if (isLoggedIn()) {
+        $voterIdCode = $_SESSION['inputSocialSecNumber'];
+    } else {
+        addInfoMessage('No logged in user, using test data of 39007180099');
+        $voterIdCode = '39007180099';
+    }
+    $query = "SELECT * FROM votingDb.Haal WHERE valija_isikukood = '$voterIdCode'";
+    $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
+
+    if (pg_num_rows($rs) < 1) {
+        echo "You have not voted e-voted yet. Select a candidate to vote for from the table below.";
+    } else {
+        echo "Your e-vote is registered. But you are still free to change it and pick a different candidate.";
+    }
+    ?>
+
   <table class="table table-condensed">
     <thead>
     <tr>
@@ -11,13 +28,6 @@
     </thead>
     <tbody>
     <?php
-    if (isLoggedIn()) {
-      $voterIdCode = $_SESSION['inputSocialSecNumber'];
-    } else {
-      addInfoMessage('No logged in user, using test data of 39007180099');
-      $voterIdCode = '39007180099';
-    }
-
     $query = "Select * from webapp.f_valitavad_kandidaadid('" . $voterIdCode . "')";
     $rs = pg_query($con, $query) or die("Cannot execute query: $query\n");
 
